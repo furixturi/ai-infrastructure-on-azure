@@ -1,0 +1,4 @@
+# Exclude GitHub Actions workflow files from prettier formatting.
+# The super-linter auto-commit cannot push workflow file changes
+# (GitHub token lacks `workflows` permission), so we exclude them.
+.github/workflows/
