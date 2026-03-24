@@ -19,22 +19,14 @@
 
 ## 1. Overview
 
-This repository collects architectural guidance and AI training examples meant
-to run on Azure AI Infrastructure.
-
-This includes infrastructure examples and real use case scenarios on Azure AI
-Infrastructure involving different orchestration solutions:
-
-- [Azure CycleCloud Workspace for Slurm](https://learn.microsoft.com/en-us/azure/cyclecloud/overview-ccws?view=cyclecloud-8)
-- [Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/what-is-aks)
-- [Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/?view=azureml-api-2)
-
-For each scenario and architecture, the repository will include storage
-recommendations among Azure Storage services
-([Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs),
+This repository provides infrastructure validation tests, deployment references,
+AI training examples, and operational guidance for running GPU workloads on Azure
+across three orchestrators — [Azure CycleCloud Workspace for Slurm](https://learn.microsoft.com/en-us/azure/cyclecloud/overview-ccws?view=cyclecloud-8),
+[Azure Kubernetes Service](https://learn.microsoft.com/en-us/azure/aks/what-is-aks),
+and [Azure Machine Learning](https://learn.microsoft.com/en-us/azure/machine-learning/?view=azureml-api-2) —
+with storage coverage for [Azure Blob Storage](https://azure.microsoft.com/en-us/products/storage/blobs),
 [Azure Managed Lustre](https://learn.microsoft.com/en-us/azure/azure-managed-lustre/amlfs-overview),
-[Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction)),
-monitoring and observability.
+and [Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction).
 
 ## 2. Infrastructure References Catalog
 
@@ -66,6 +58,12 @@ monitoring and observability.
    Foundry
    - [Slurm version](./examples/llm-foundry/slurm/README.md)
    - [AKS version](./examples/llm-foundry/aks/README.md)
+3. NeMo-Run Finetune & Inference - Finetuning and inference workflows using
+   NVIDIA NeMo-Run via Jupyter notebooks
+   - [Slurm version](./examples/nemo-run/slurm/README.md)
+4. DGX Benchmark Tuning - System-level and model-level optimizations for DGX
+   benchmark workloads on Azure
+   - [Slurm version](./examples/dgx_benchmarking/slurm/README.md)
 
 ## 5. Infrastructure Validation Catalog
 
@@ -73,13 +71,16 @@ monitoring and observability.
    training
    - [Slurm version](./infrastructure_validations/slurm/NCCL/README.md)
    - [AKS version](./infrastructure_validations/aks/NCCL/README.md)
-2. Node Health Checks - Automated system validation and monitoring for compute
+2. GPU GEMM - Per-node ubergemm benchmark reporting per-GPU GFlops across all
+   allocated nodes
+   - [Slurm version](./infrastructure_validations/slurm/gpu_test/README.md)
+3. Node Health Checks - Automated system validation and monitoring for compute
    nodes
    - [Slurm version](./infrastructure_validations/slurm/NHC/README.md)
    - [AKS version](./infrastructure_validations/aks/NHC/README.md)
-3. Thermal Test - GPU thermal stress testing and monitoring
+4. Thermal Test - GPU thermal stress testing and monitoring
    - [Slurm version](./infrastructure_validations/slurm/thermal_test/README.md)
-4. FIO Storage Performance Testing - I/O performance testing with Azure
+5. FIO Storage Performance Testing - I/O performance testing with Azure
    Container Storage, blobfuse, and other storage types
    - [AKS version](./infrastructure_validations/aks/fio/README.md)
 
