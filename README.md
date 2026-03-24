@@ -47,9 +47,9 @@ and [Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-fi
 
 ## 4. AI Training Example Catalog
 
-1. MegatronLM GPT3-175B with SlimPajama 627B dataset - Example of an end-to-end
+1. MegatronLM GPT3-175B with Slimpajama 627B dataset - Example of an end-to-end
    training workflow based on MegatronLM, including data pre-processing from
-   SlimPajama 627B dataset
+   Slimpajama 627B dataset
    - [Slurm version](./examples/megatron-lm/GPT3-175B/slurm/README.md)
    - [AKS version](./examples/megatron-lm/GPT3-175B/aks/README.md)
 2. LLM Foundry MPT Training - Example of an end-to-end training workflow of
@@ -150,6 +150,6 @@ trademarks or logos is subject to those third-party's policies.
 
 ## 11. Contributors
 
-Please join us in contributing to the project.
+Please join us in contributing to the project
 
-[![Contributors](https://contrib.rocks/image?repo=Azure/ai-infrastructure-on-azure)](https://github.com/Azure/ai-infrastructure-on-azure/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=Azure/ai-on-azure)](https://github.com/Azure/ai-infrastructure-on-azure/graphs/contributors)
