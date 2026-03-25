@@ -44,26 +44,26 @@ For any cluster operations, validation, or troubleshooting request:
 
 ### Skills Index
 
-| Skill | Path | Purpose |
-|-------|------|---------|
-| Slurm Router | `skills/slurm/slurm_router/SKILL.md` | Intent → skill mapping (use first) |
-| SKU Baseline | `skills/slurm/sku_performance_baseline/SKILL.md` | Expected values, warn/GHR thresholds |
-| NCCL AllReduce | `skills/slurm/nccl_allreduce_test/SKILL.md` | Run and interpret NCCL bandwidth tests |
-| NCCL Diagnosis | `skills/slurm/nccl_performance_diagnosis/SKILL.md` | Bisection algorithm, intra/inter-rack scoping |
-| GPU Validation | `skills/slurm/node_gpu_validation/SKILL.md` | ubergemm GEMM benchmarks, fleet analysis |
-| Thermal Test | `skills/slurm/thermal_stress_test/SKILL.md` | dcgmproftester stress test |
-| IB Validation | `skills/slurm/ib_link_validation/SKILL.md` | Port state, pkeys, error counters |
-| Rack Topology | `skills/slurm/rack_topology/SKILL.md` | MNNVL domains, ClusterUUID discovery |
-| Outlier Detection | `skills/slurm/cluster_outlier_detection/SKILL.md` | Z-score, MAD, fleet-wide statistical analysis |
-| Azure GHR | `skills/slurm/azure_node_health_report/SKILL.md` | Guest Health Report filing, impact categories |
-| Node Lifecycle | `skills/slurm/node_drain_and_replace/SKILL.md` | Drain/undrain/reboot decision tree |
+| Skill             | Path                                               | Purpose                                       |
+| ----------------- | -------------------------------------------------- | --------------------------------------------- |
+| Slurm Router      | `skills/slurm/slurm_router/SKILL.md`               | Intent → skill mapping (use first)            |
+| SKU Baseline      | `skills/slurm/sku_performance_baseline/SKILL.md`   | Expected values, warn/GHR thresholds          |
+| NCCL AllReduce    | `skills/slurm/nccl_allreduce_test/SKILL.md`        | Run and interpret NCCL bandwidth tests        |
+| NCCL Diagnosis    | `skills/slurm/nccl_performance_diagnosis/SKILL.md` | Bisection algorithm, intra/inter-rack scoping |
+| GPU Validation    | `skills/slurm/node_gpu_validation/SKILL.md`        | ubergemm GEMM benchmarks, fleet analysis      |
+| Thermal Test      | `skills/slurm/thermal_stress_test/SKILL.md`        | dcgmproftester stress test                    |
+| IB Validation     | `skills/slurm/ib_link_validation/SKILL.md`         | Port state, pkeys, error counters             |
+| Rack Topology     | `skills/slurm/rack_topology/SKILL.md`              | MNNVL domains, ClusterUUID discovery          |
+| Outlier Detection | `skills/slurm/cluster_outlier_detection/SKILL.md`  | Z-score, MAD, fleet-wide statistical analysis |
+| Azure GHR         | `skills/slurm/azure_node_health_report/SKILL.md`   | Guest Health Report filing, impact categories |
+| Node Lifecycle    | `skills/slurm/node_drain_and_replace/SKILL.md`     | Drain/undrain/reboot decision tree            |
 
 ## SKU Quick Reference
 
-| SKU | GPUs/node | IB ports | GPU GEMM target | NCCL intra-rack | NCCL inter-rack | Rack size |
-|-----|-----------|----------|-----------------|-----------------|-----------------|-----------|
-| GB300 (NDv6) | 4 | 4 × 400 Gb/s | ~1,850 TFlops | ~937 GB/s | ~200 GB/s | 18 nodes (MNNVL) |
-| H100 (NDv5)  | 8 | 8 × 400 Gb/s | ~769 GFlops   | ~450 GB/s | —         | No MNNVL  |
+| SKU          | GPUs/node | IB ports     | GPU GEMM target | NCCL intra-rack | NCCL inter-rack | Rack size        |
+| ------------ | --------- | ------------ | --------------- | --------------- | --------------- | ---------------- |
+| GB300 (NDv6) | 4         | 4 × 400 Gb/s | ~1,850 TFlops   | ~937 GB/s       | ~200 GB/s       | 18 nodes (MNNVL) |
+| H100 (NDv5)  | 8         | 8 × 400 Gb/s | ~769 GFlops     | ~450 GB/s       | —               | No MNNVL         |
 
 See `skills/slurm/sku_performance_baseline/SKILL.md` for warn/GHR thresholds.
 
@@ -73,17 +73,17 @@ Each test has its own README with exact commands.
 
 ### Slurm Tests
 
-| Test | Script | What it does |
-|------|--------|--------------|
-| NCCL AllReduce | `infrastructure_validations/slurm/NCCL/nccl_test.sh` | Multi-node all_reduce_perf with per-SKU configs (hopper, graceblackwell) |
-| GPU GEMM | `infrastructure_validations/slurm/gpu_test/gpu_test.slurm` | Per-GPU ubergemm benchmark, outputs GFlops CSV |
-| Thermal | `infrastructure_validations/slurm/thermal_test/thermal_test.slurm` | dcgmproftester stress, binary pass/fail |
-| NHC | `infrastructure_validations/slurm/NHC/nhc.slurm` | Node health checks; run → reboot failures → rerun → drain |
+| Test           | Script                                                             | What it does                                                             |
+| -------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| NCCL AllReduce | `infrastructure_validations/slurm/NCCL/nccl_test.sh`               | Multi-node all_reduce_perf with per-SKU configs (hopper, graceblackwell) |
+| GPU GEMM       | `infrastructure_validations/slurm/gpu_test/gpu_test.slurm`         | Per-GPU ubergemm benchmark, outputs GFlops CSV                           |
+| Thermal        | `infrastructure_validations/slurm/thermal_test/thermal_test.slurm` | dcgmproftester stress, binary pass/fail                                  |
+| NHC            | `infrastructure_validations/slurm/NHC/nhc.slurm`                   | Node health checks; run → reboot failures → rerun → drain                |
 
 ### AKS Tests
 
-| Test | Chart | Notes |
-|------|-------|-------|
-| NCCL AllReduce | `infrastructure_validations/aks/NCCL/helm/nccl-test` | Helm chart, configurable nodes/GPUs |
-| NHC | `infrastructure_validations/aks/NHC/` | Containerized node health checks |
-| FIO | `infrastructure_validations/aks/fio/helm/fio` | Storage I/O benchmarks (BlobFuse, AMLFS) |
+| Test           | Chart                                                | Notes                                    |
+| -------------- | ---------------------------------------------------- | ---------------------------------------- |
+| NCCL AllReduce | `infrastructure_validations/aks/NCCL/helm/nccl-test` | Helm chart, configurable nodes/GPUs      |
+| NHC            | `infrastructure_validations/aks/NHC/`                | Containerized node health checks         |
+| FIO            | `infrastructure_validations/aks/fio/helm/fio`        | Storage I/O benchmarks (BlobFuse, AMLFS) |

@@ -53,7 +53,7 @@ jobs:
           # Disable Black in favor of Pyink to avoid formatter conflicts
           VALIDATE_PYTHON_BLACK: false
           # Filter out Helm chart templates from remaining YAML checks
-          FILTER_REGEX_EXCLUDE: ".*helm.*templates/.*\\.yaml$"
+          FILTER_REGEX_EXCLUDE: "(.github/workflows/.*|.*helm.*templates/.*\\.yaml$)"
 
       - name: Generate linting patch
         if: ${{ github.event_name == 'pull_request' }}

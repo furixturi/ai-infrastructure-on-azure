@@ -4,7 +4,6 @@
 | -------------------------- | ----------------- |
 | ARM                        | Pass ✅           |
 | BASH                       | Pass ✅           |
-| GITHUB_ACTIONS             | Pass ✅           |
 | GITLEAKS                   | Pass ✅           |
 | GIT_MERGE_CONFLICT_MARKERS | Pass ✅           |
 | JSON                       | Pass ✅           |
